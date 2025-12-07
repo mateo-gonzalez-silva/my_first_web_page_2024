@@ -54,10 +54,23 @@
             color: white;
             text-decoration: none;
             font-size: 1rem;
+            padding: 5px 16px;
             border-radius: 5px;
             transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #555;
+        }
+
         nav a.active {
             background-color: red;
+            color: white;
+        }
+
+        .content {
+            height: 800px;
+            display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
@@ -128,10 +141,42 @@
 
     <main class="container">
         <div class="content">
-            <h1>Welcome to the Webpage</h1>
-            <p>This is the central area of the webpage where you can include your content.</p>
-        </div>
+            <div class="content">
+                <div class="content">
+                            <h1>Hi, I'm Mateo González Silva</h1>
+                            <h2>Computer Engineering Student</h2>
+                            <p>You are currently at my first webpage, hope you like it!</p>
+                            
+                            <div style="margin-top: 50px; text-align: center;">
+                            <p>You have been in my website for:</p>
+                            <strong id="timer" style="font-size: 3rem; color: red; letter-spacing: 2px;">
+                                00:00
+                            </strong>
+                        </div>
+                        </div>
 
+                        <script>
+                        let seconds = 0;
+                        let minutes = 0;
+
+                        const timerElement = document.getElementById('timer');
+
+                        function updateTimer() {
+                            seconds++;
+                            if (seconds >= 60) {
+                                seconds = 0;
+                                minutes++;
+                            }
+                            
+                            const formattedSeconds = seconds < 10 ? '0' + seconds : seconds;
+                            const formattedMinutes = minutes < 10 ? '0' + minutes : minutes;
+                            
+                            timerElement.textContent = `${formattedMinutes}:${formattedSeconds}`;
+                        }
+                        setInterval(updateTimer, 1000);
+                        </script>
+            </div>
+        </div>
         <div class="menu">
             <div class="menu-content">
                 <div class="menu-item">
